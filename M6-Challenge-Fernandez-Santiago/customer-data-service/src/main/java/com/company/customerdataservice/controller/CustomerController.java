@@ -16,7 +16,7 @@ public class CustomerController {
     CustomerRepository customerRepo;
 
     // Create a new customer record.
-    @GetMapping("/customers")
+    @PostMapping("/customers")
     @ResponseStatus(HttpStatus.CREATED)
     public Customer addCustomer(@RequestBody Customer customer){
         return customerRepo.save(customer);
@@ -30,8 +30,8 @@ public class CustomerController {
     }
 
     // Delete an existing customer record
-    @DeleteMapping("/customer/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @DeleteMapping("/customers/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCustomer(@PathVariable int id){
         customerRepo.deleteById(id);
     }
@@ -50,5 +50,5 @@ public class CustomerController {
     public List<Customer> getCustomerByState(@PathVariable String state){
         return customerRepo.findByState(state);
     }
-    
+
 }
