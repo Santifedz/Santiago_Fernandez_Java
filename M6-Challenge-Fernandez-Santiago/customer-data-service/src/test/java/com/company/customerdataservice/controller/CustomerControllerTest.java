@@ -43,6 +43,7 @@ public class CustomerControllerTest {
         testCustomer.setState("Illinois");
         testCustomer.setPostalCode("60647");
         testCustomer.setCountry("United States");
+
     }
 
     @Test
